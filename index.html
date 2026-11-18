@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1a12">
+<title>المسابقة الوطنية الكبرى – عيد الاتحاد الإماراتي الـ55</title>
+<meta name="description" content="المسابقة الوطنية الكبرى: التحدي والتفكير والإبداع – عيد الاتحاد الإماراتي الـ55. إعداد وتصميم رائد السقار.">
+<style>
+:root{
+  --red:#CE1126; --green:#00732F; --green-d:#04462a; --ink:#07110c; --ink2:#0d1f16;
+  --gold:#D4AF37; --gold-l:#f4dc8a; --gold-d:#9c7a1c; --white:#fff; --card:rgba(255,255,255,.96);
+  --font: "Segoe UI","Noto Naskh Arabic","Noto Sans Arabic",Tahoma,"Geeza Pro","Arial",sans-serif;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:#fff;background:radial-gradient(1200px 700px at 80% -10%,#0f3d27 0,transparent 60%),radial-gradient(900px 600px at 0% 100%,#3b0a12 0,transparent 55%),linear-gradient(160deg,#050c08,#0a1a12 55%,#050c08);min-height:100vh;min-height:100dvh;overflow-x:hidden;line-height:1.7}
+button,select,input{font-family:inherit;font-size:1rem}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+.screen{display:none;min-height:100vh;min-height:100dvh;padding:18px 16px 70px;position:relative;z-index:2}
+.screen.active{display:block;animation:scr .55s ease both}
+@keyframes scr{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wrap{max-width:980px;margin:0 auto}
+.gold-text{background:linear-gradient(180deg,#fff3c4,#D4AF37 45%,#8a6a14);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;border-radius:999px;padding:14px 30px;font-weight:800;font-size:1.08rem;color:#1b1400;background:linear-gradient(180deg,#f7e39a,#D4AF37 55%,#a9831d);box-shadow:0 8px 24px rgba(212,175,55,.35),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .15s,box-shadow .2s,filter .2s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,175,55,.5),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn:active{transform:translateY(0)}
+.btn[disabled]{filter:grayscale(.8) brightness(.7);cursor:not-allowed;transform:none;box-shadow:none}
+.btn.green{background:linear-gradient(180deg,#14a255,#00732F);color:#fff;box-shadow:0 8px 24px rgba(0,115,47,.4)}
+.btn.red{background:linear-gradient(180deg,#e8283d,#CE1126);color:#fff}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(212,175,55,.5);box-shadow:none}
+.btn.sm{padding:9px 18px;font-size:.92rem}
+.btn.big{padding:18px 44px;font-size:1.3rem}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
+.btn[disabled]::after,.btn.ghost::after{display:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.card{background:var(--card);color:#14231b;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 0 1px rgba(212,175,55,.35);padding:22px}
+.glass{background:rgba(255,255,255,.07);border:1px solid rgba(212,175,55,.35);backdrop-filter:blur(8px);border-radius:var(--r);padding:20px}
+.credit{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;font-size:.95rem;color:#f3e7b8}
+.credit b{color:#fff}
+#foot{position:fixed;bottom:0;left:0;right:0;z-index:20;text-align:center;font-size:.8rem;padding:7px 10px;background:linear-gradient(90deg,rgba(206,17,38,.9),rgba(0,0,0,.92) 35%,rgba(0,0,0,.92) 65%,rgba(0,115,47,.9));border-top:1px solid var(--gold);color:#f8edc2}
+#foot b{color:#fff}
+
+/* HOME */
+.hero{text-align:center;padding-top:10px}
+.hero .flagrow{display:flex;justify-content:center;align-items:flex-end;gap:18px}
+.flagbox{width:min(240px,42vw);perspective:600px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+.flagbox svg{display:block;width:100%;transform-origin:right center;animation:wave 4s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotateY(-6deg) skewY(-1.5deg)}50%{transform:rotateY(8deg) skewY(1.8deg) scaleX(.985)}}
+.big55{font-size:clamp(7rem,26vw,13rem);font-weight:900;line-height:.9;letter-spacing:-.04em;display:inline-block;position:relative;font-family:Georgia,"Times New Roman",serif;
+  background:linear-gradient(180deg,#fff6cf 0%,#f0d46a 30%,#c9a227 55%,#7a5b0f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(1px 1px 0 #8a6a14) drop-shadow(2px 2px 0 #7a5b0f) drop-shadow(3px 3px 0 #6a4f0c) drop-shadow(4px 4px 0 #5a420a) drop-shadow(6px 10px 14px rgba(0,0,0,.6));animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(1px 1px 0 #8a6a14) drop-shadow(2px 2px 0 #7a5b0f) drop-shadow(3px 3px 0 #6a4f0c) drop-shadow(4px 4px 0 #5a420a) drop-shadow(6px 10px 14px rgba(0,0,0,.6))}50%{filter:drop-shadow(1px 1px 0 #8a6a14) drop-shadow(2px 2px 0 #7a5b0f) drop-shadow(3px 3px 0 #6a4f0c) drop-shadow(4px 4px 0 #5a420a) drop-shadow(0 0 28px rgba(244,220,138,.75))}}
+.falcon{width:min(120px,22vw);opacity:.95;animation:soar 6s ease-in-out infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+@keyframes soar{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.title{font-size:clamp(2rem,6.5vw,3.6rem);font-weight:900;margin-top:6px;animation:rise .9s .1s both}
+.subtitle{font-size:clamp(1.05rem,3vw,1.5rem);color:#f4dc8a;font-weight:700;animation:rise .9s .3s both}
+.slogan{margin:12px auto 0;max-width:640px;font-size:clamp(1rem,2.6vw,1.25rem);color:#e9f5ee;animation:rise .9s .5s both}
+.greet{display:inline-block;margin-top:14px;padding:8px 22px;border-radius:999px;background:linear-gradient(90deg,var(--red),#7a0a18);border:1px solid var(--gold);font-weight:800;animation:rise .9s .7s both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.intro{margin:16px auto 0;max-width:720px;color:#d9ecdf;animation:rise .9s .8s both}
+.instr{margin:22px auto 0;max-width:760px;text-align:right;animation:rise .9s 1s both}
+.instr h3{color:var(--green);margin-bottom:10px;font-size:1.25rem;display:flex;gap:8px;align-items:center}
+.instr ol{padding-right:0;list-style:none;counter-reset:i;display:grid;gap:8px}
+.instr li{counter-increment:i;display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:12px;background:#f2f7f4}
+.instr li::before{content:counter(i);flex:0 0 28px;height:28px;border-radius:50%;background:linear-gradient(180deg,#14a255,#00732F);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.cta{margin-top:24px;animation:rise .9s 1.2s both}
+.scene{position:fixed;left:0;right:0;bottom:30px;z-index:1;pointer-events:none;opacity:.9}
+.scene svg{width:100%;height:auto;display:block;max-height:34vh}
+.credit-card{margin:22px auto 0;max-width:620px;animation:rise .9s 1.1s both}
+
+/* FORMS */
+.formcard{max-width:600px;margin:30px auto 0}
+.formcard h2{color:var(--green);text-align:center;margin-bottom:4px;font-size:1.6rem}
+.formcard p.sub{text-align:center;color:#4b5f54;margin-bottom:18px}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:800;margin-bottom:6px;color:#16301f}
+.field input,.field select{width:100%;padding:14px 16px;border-radius:14px;border:2px solid #cfe0d6;background:#fff;color:#14231b;outline:none;transition:border .2s,box-shadow .2s;font-size:1.05rem}
+.field input:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(0,115,47,.15)}
+.field.err input,.field.err select{border-color:var(--red)}
+.field .msg{color:var(--red);font-size:.88rem;min-height:1.2em;margin-top:4px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}}
+.welcome{text-align:center;max-width:640px;margin:36px auto 0}
+.welcome .medal{font-size:4rem;animation:pop .8s both}
+@keyframes pop{0%{transform:scale(.2) rotate(-20deg);opacity:0}70%{transform:scale(1.15) rotate(4deg)}100%{transform:none;opacity:1}}
+.welcome h2{font-size:1.9rem;color:var(--green);margin:6px 0}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.chip{padding:6px 14px;border-radius:999px;background:#eef6f1;border:1px solid #c5dccf;font-weight:700;color:#14472c}
+.notice{margin-top:12px;padding:12px 14px;border-radius:12px;background:#fff6dc;color:#6b4e00;border:1px solid #ecd48a;font-size:.95rem}
+.notice.bad{background:#fde8ea;color:#8a0f1c;border-color:#f3b5bb}
+.notice.ok{background:#e6f6ec;color:#0b5a2a;border-color:#a9dcbc}
+
+/* QUIZ */
+.qtop{position:sticky;top:0;z-index:30;margin:-18px -16px 14px;padding:12px 16px 10px;background:linear-gradient(180deg,rgba(5,12,8,.97),rgba(5,12,8,.88));backdrop-filter:blur(6px);border-bottom:1px solid rgba(212,175,55,.4)}
+.qtop .row{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.qnum{font-weight:900;font-size:1.3rem;color:var(--gold-l);font-variant-numeric:tabular-nums;direction:ltr}
+.who{font-size:.9rem;color:#cfe6d8;max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.timer{display:flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;font-weight:900;font-size:1.25rem;font-variant-numeric:tabular-nums;direction:ltr;border:2px solid;transition:all .4s}
+.timer.g{color:#7dffb0;border-color:#1ea45a;background:rgba(0,115,47,.25)}
+.timer.y{color:#ffe27a;border-color:#d4af37;background:rgba(212,175,55,.2)}
+.timer.r{color:#ff8a96;border-color:#ce1126;background:rgba(206,17,38,.25);animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(206,17,38,.25)}}
+.pbar{max-width:980px;margin:10px auto 0;height:10px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.qcard{max-width:900px;margin:0 auto;padding:22px}
+.qcard.in{animation:qin .35s ease both}
+.qcard.out{animation:qout .2s ease both}
+@keyframes qin{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+@keyframes qout{to{opacity:0;transform:translateX(30px)}}
+.qmeta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.qicon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.7rem;background:linear-gradient(135deg,#e7f5ec,#fff4d1);border:1px solid #cbe3d3}
+.qdom{font-weight:800;color:var(--green)}
+.qlvl{font-size:.82rem;color:#7a5b0f;background:#fff4d1;border:1px solid #ecd48a;border-radius:999px;padding:2px 12px}
+.qtext{font-size:clamp(1.25rem,3.6vw,1.65rem);font-weight:800;line-height:1.9;color:#10241a;margin-bottom:16px}
+.qtable{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:1rem;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px #cfe0d6}
+.qtable th{background:var(--green);color:#fff;padding:10px 12px;text-align:right}
+.qtable td{padding:9px 12px;border-top:1px solid #dcebe2;background:#f7fbf8;color:#14231b}
+.qtable tr:nth-child(even) td{background:#eef6f1}
+.opts{display:grid;gap:12px}
+.opt{display:flex;gap:14px;align-items:center;width:100%;text-align:right;padding:14px 16px;border-radius:16px;border:2px solid #d5e4db;background:#fff;color:#14231b;cursor:pointer;font-size:clamp(1.05rem,2.8vw,1.25rem);font-weight:600;line-height:1.7;transition:transform .12s,border .2s,box-shadow .2s,background .2s}
+.opt:hover{border-color:var(--gold);transform:translateX(-3px)}
+.opt .l{flex:0 0 42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:#eef6f1;color:var(--green);border:2px solid #cfe0d6;transition:all .2s}
+.opt.sel{border-color:var(--green);background:linear-gradient(90deg,#e8f7ee,#fff);box-shadow:0 0 0 4px rgba(0,115,47,.15),0 8px 20px rgba(0,115,47,.18)}
+.opt.sel .l{background:var(--green);color:#fff;border-color:var(--green);transform:scale(1.08)}
+.qfoot{max-width:900px;margin:16px auto 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.qfoot .hint{color:#bcd6c6;font-size:.92rem}
+.toast{position:fixed;top:92px;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(90deg,#00732F,#0a8f42);color:#fff;font-weight:800;padding:10px 22px;border-radius:999px;border:1px solid var(--gold);z-index:60;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.warn{background:linear-gradient(90deg,#b8890f,#d4af37);color:#1b1400}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:70;display:none;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal .box{max-width:460px;width:100%;text-align:center;animation:pop .35s both}
+.modal h3{color:var(--green);margin-bottom:8px;font-size:1.4rem}
+.modal .acts{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+/* RESULT */
+.res{max-width:900px;margin:10px auto 0;text-align:center}
+.res h2{font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:4px}
+.ring{position:relative;width:200px;height:200px;margin:14px auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;font-size:3.2rem;font-weight:900;color:var(--gold-l);line-height:1}
+.ring .num small{display:block;font-size:1rem;color:#cfe6d8;font-weight:600}
+.gradeTitle{display:inline-block;font-size:1.6rem;font-weight:900;padding:8px 30px;border-radius:999px;background:linear-gradient(180deg,#f7e39a,#D4AF37,#a9831d);color:#1b1400;margin:6px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{padding:14px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(212,175,55,.35)}
+.stat b{display:block;font-size:1.6rem;color:var(--gold-l)}
+.stat span{font-size:.9rem;color:#cfe6d8}
+.stat.ok b{color:#7dffb0}.stat.no b{color:#ff8a96}
+.infoline{display:flex;gap:8px 18px;justify-content:center;flex-wrap:wrap;color:#e9f5ee}
+.congrats{max-width:640px;margin:10px auto;font-size:1.15rem;color:#f4e8b6}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.status{max-width:680px;margin:14px auto 0}
+
+/* REVIEW */
+.rev{max-width:900px;margin:0 auto}
+.rev .q{margin-bottom:16px;border-right:6px solid var(--green)}
+.rev .q.bad{border-right-color:var(--red)}
+.rev .q.none{border-right-color:#a58a2b}
+.rev h4{color:#10241a;font-size:1.15rem;margin-bottom:8px}
+.rev .ans{display:grid;gap:6px;margin:8px 0}
+.rev .a{padding:8px 12px;border-radius:10px;font-weight:700}
+.rev .a.you.ok{background:#e1f5e8;color:#0b5a2a}.rev .a.you.no{background:#fde8ea;color:#8a0f1c}.rev .a.you.none{background:#fff2cf;color:#6b4e00}
+.rev .a.cor{background:#e1f5e8;color:#0b5a2a}
+.rev .exp{background:#f3f8f5;border-radius:10px;padding:10px 12px;color:#25362c}
+.rev .skill{font-size:.85rem;color:#7a5b0f;margin-top:6px}
+
+/* CERT */
+.certwrap{max-width:1000px;margin:10px auto;text-align:center}
+.certwrap canvas{width:100%;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 2px var(--gold)}
+
+/* TEACHER */
+.tw{max-width:1180px;margin:0 auto}
+.tw h2{color:var(--green)}
+.tstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.tstats .s{background:#f1f7f3;border-radius:14px;padding:12px;text-align:center;border:1px solid #d3e4da}
+.tstats .s b{display:block;font-size:1.5rem;color:var(--green)}
+.tstats .s span{font-size:.85rem;color:#4b5f54}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.tools select{padding:9px 12px;border-radius:10px;border:2px solid #cfe0d6}
+.tblwrap{overflow:auto;border-radius:12px;border:1px solid #cfe0d6}
+table.t{width:100%;border-collapse:collapse;min-width:720px;color:#14231b}
+table.t th{background:var(--green);color:#fff;padding:10px;text-align:right;position:sticky;top:0}
+table.t td{padding:9px 10px;border-top:1px solid #e0ece5;background:#fff}
+table.t tr:nth-child(even) td{background:#f5faf7}
+.tag{padding:2px 10px;border-radius:999px;font-size:.82rem;font-weight:800}
+.tag.c{background:#e1f5e8;color:#0b5a2a}.tag.t{background:#fde8ea;color:#8a0f1c}
+.sett{display:grid;gap:12px;margin-top:10px}
+details.card summary{cursor:pointer;font-weight:900;color:var(--green)}
+
+@media print{
+  body{background:#fff!important;color:#000}
+  #fx,#foot,.scene,.noprint,.btn,.tools{display:none!important}
+  .screen{display:none!important}
+  #s-teacher{display:block!important;padding:0}
+  .card{box-shadow:none;border:1px solid #999}
+  .tblwrap{overflow:visible}
+  table.t th{background:#ddd!important;color:#000!important;position:static}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ HOME ============ -->
+<section id="s-home" class="screen">
+  <div class="wrap hero">
+    <div class="flagrow">
+      <svg class="falcon" viewBox="0 0 200 130" aria-hidden="true">
+        <defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4dc8a"/><stop offset="1" stop-color="#9c7a1c"/></linearGradient></defs>
+        <g id="wingR" fill="url(#gf)">
+          <path d="M104,46 C132,30 168,34 198,62 C184,58 172,60 163,66 C171,67 166,77 154,80 C158,84 150,90 137,91 C129,92 113,96 104,104 Z"/>
+          <path d="M104,52 C128,44 154,48 176,62" fill="none" stroke="#7a5b0f" stroke-width="1.2" opacity=".6"/>
+          <path d="M104,62 C124,56 142,60 158,70" fill="none" stroke="#7a5b0f" stroke-width="1.2" opacity=".6"/>
+        </g>
+        <use href="#wingR" transform="translate(200,0) scale(-1,1)"/>
+        <path d="M100,24 C108,24 112,32 110,40 C108,48 106,58 106,70 L108,104 L100,126 L92,104 L94,70 C94,58 92,48 90,40 C88,32 92,24 100,24Z" fill="url(#gf)"/>
+        <path d="M100,32 L97,40 L100,46 L103,40Z" fill="#7a5b0f"/>
+        <circle cx="95.5" cy="31" r="1.7" fill="#07110c"/><circle cx="104.5" cy="31" r="1.7" fill="#07110c"/>
+      </svg>
+      <div class="flagbox" id="homeFlag"></div>
+      <svg class="falcon" viewBox="0 0 200 130" aria-hidden="true" style="animation-delay:-3s"><use href="#wingR"/><use href="#wingR" transform="translate(200,0) scale(-1,1)"/>
+        <path d="M100,24 C108,24 112,32 110,40 C108,48 106,58 106,70 L108,104 L100,126 L92,104 L94,70 C94,58 92,48 90,40 C88,32 92,24 100,24Z" fill="url(#gf)"/></svg>
+    </div>
+    <div class="big55" aria-label="55">55</div>
+    <h1 class="title gold-text">المسابقة الوطنية الكبرى</h1>
+    <div class="subtitle">التحدي والتفكير والإبداع – عيد الاتحاد الإماراتي الـ55</div>
+    <p class="slogan">55 عامًا من الاتحاد... ومسيرة وطن لا تعرف المستحيل.</p>
+    <div class="greet">🎉 كل عام ودولة الإمارات وقيادتها وشعبها بخير بمناسبة عيد الاتحاد الـ55</div>
+    <p class="intro">رحلة معرفية وطنية تدعوك إلى التفكير والتحليل والاستنتاج في مسيرة الاتحاد، من فكرة تأسست بإرادة الآباء المؤسسين إلى دولة تتطلع إلى المستقبل.</p>
+
+    <div class="card instr" id="instr">
+      <h3>📋 تعليمات المسابقة</h3>
+      <ol>
+        <li>المسابقة تتكون من 25 سؤال اختيار من متعدد.</li>
+        <li>الأسئلة تتطلب التفكير والتحليل والاستنتاج، وليس الحفظ فقط.</li>
+        <li>لكل سؤال أربع إجابات محتملة.</li>
+        <li>لكل سؤال إجابة صحيحة واحدة.</li>
+        <li id="li-timer">يوجد مؤقت زمني تنازلي للمسابقة.</li>
+        <li>لا يمكن العودة إلى السؤال السابق بعد الانتقال للسؤال التالي.</li>
+        <li>لا يمكن إعادة المحاولة بعد التسليم إلا وفق إعدادات المعلم.</li>
+        <li>تُحفظ نتيجة الطالب ووقت إنجازه.</li>
+        <li>يجب الإجابة عن جميع الأسئلة قبل تسليم المسابقة.</li>
+      </ol>
+    </div>
+    <div id="homeNotice"></div>
+    <div class="cta"><button class="btn big" id="btnStart">🇦🇪 ابدأ رحلتك في تحدي الاتحاد</button></div>
+    <div class="glass credit-card"><div class="credit"><span>إعداد وتصميم:</span><b>رائد السقار – مدرس الدراسات الاجتماعية</b></div><div class="credit"><span>المدرسة:</span><b>مدرسة محمد بن راشد – الحلقة الثانية والثالثة – دبي</b></div></div>
+  </div>
+  <div class="scene" aria-hidden="true" id="sceneBox"></div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="s-register" class="screen">
+  <div class="wrap">
+    <div class="card formcard">
+      <h2>📝 بيانات الطالب</h2>
+      <p class="sub">جميع الحقول إلزامية قبل بدء المسابقة</p>
+      <form id="regForm" novalidate>
+        <div class="field" id="f-name"><label for="inName">اسم الطالب (ثلاثي أو كامل)</label><input id="inName" type="text" autocomplete="name" maxlength="60" placeholder="مثال: أحمد محمد علي"><div class="msg"></div></div>
+        <div class="row2">
+          <div class="field" id="f-grade"><label for="inGrade">الصف الدراسي</label>
+            <select id="inGrade"><option value="">اختر الصف</option><option>التاسع</option><option>العاشر</option><option>الحادي عشر</option><option>الثاني عشر</option></select><div class="msg"></div></div>
+          <div class="field" id="f-sec"><label for="inSec">الشعبة</label><select id="inSec"><option value="">اختر الشعبة</option></select><div class="msg"></div></div>
+        </div>
+        <div id="regNotice"></div>
+        <div style="text-align:center;margin-top:8px"><button type="submit" class="btn green big" id="btnReg">متابعة ←</button></div>
+      </form>
+      <div class="credit" style="margin-top:16px;color:#4b5f54"><span>إعداد وتصميم: <b style="color:#14231b">رائد السقار – مدرس الدراسات الاجتماعية</b></span><span>مدرسة محمد بن راشد – الحلقة الثانية والثالثة – دبي</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ READY ============ -->
+<section id="s-ready" class="screen">
+  <div class="wrap">
+    <div class="card welcome">
+      <div class="medal">🏅</div>
+      <h2 id="wName">مرحبًا بك يا بطل!</h2>
+      <p style="font-size:1.2rem;font-weight:700;color:#14231b">مرحبًا بك يا بطل!<br>أنت الآن مستعد لخوض التحدي الوطني الكبير.</p>
+      <div class="chips"><span class="chip" id="wGrade"></span><span class="chip" id="wSec"></span><span class="chip" id="wDur">⏱ 30 دقيقة</span><span class="chip">25 سؤالًا</span></div>
+      <div class="notice">سيبدأ المؤقت عند الضغط على الزر أدناه، ولا يتوقف بتحديث الصفحة أو التنقل بين الأسئلة.</div>
+      <div id="readyNotice"></div>
+      <div style="margin-top:18px"><button class="btn big" id="btnGo">🚀 ابدأ المسابقة الآن</button></div>
+      <div class="credit" style="margin-top:16px;color:#4b5f54"><span>إعداد وتصميم: <b style="color:#14231b">رائد السقار – مدرس الدراسات الاجتماعية</b></span><span>مدرسة محمد بن راشد – الحلقة الثانية والثالثة – دبي</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="s-quiz" class="screen">
+  <div class="qtop"><div class="row">
+    <div class="qnum" id="qNum">01 / 25</div>
+    <div class="who" id="qWho"></div>
+    <div class="timer g" id="timer" aria-live="off">⏱ <span id="tTxt">30:00</span></div>
+  </div><div class="pbar"><i id="pFill"></i></div></div>
+  <div id="qHost"></div>
+  <div class="qfoot"><div class="hint" id="qHint">اختر إجابة واحدة ثم اضغط للمتابعة</div><button class="btn green" id="btnNext" disabled>تأكيد الإجابة والانتقال للسؤال التالي ←</button></div>
+</section>
+
+<!-- ============ SUBMITTING / PENDING ============ -->
+<section id="s-wait" class="screen">
+  <div class="wrap"><div class="card formcard" style="text-align:center">
+    <div style="font-size:3rem" id="waitIcon">⏳</div>
+    <h2 id="waitTitle">جارٍ تسليم إجاباتك...</h2>
+    <p class="sub" id="waitMsg">يرجى عدم إغلاق الصفحة.</p>
+    <div id="waitActs" style="margin-top:10px"></div>
+  </div></div>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section id="s-result" class="screen">
+  <div class="wrap res">
+    <div class="big55" style="font-size:clamp(4rem,14vw,6.5rem)">55</div>
+    <h2 class="gold-text" id="rTitle">نتيجتك في المسابقة</h2>
+    <div class="infoline"><span>👤 <b id="rName"></b></span><span>🎓 الصف: <b id="rGrade"></b></span><span>📚 الشعبة: <b id="rSec"></b></span></div>
+    <div class="ring"><svg width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14"/><circle id="ringArc" cx="100" cy="100" r="88" fill="none" stroke="url(#rg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="553" stroke-dashoffset="553" style="transition:stroke-dashoffset 1.6s ease"/><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ce1126"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#00a04a"/></linearGradient></defs></svg><div class="num"><div><span id="rScore">0</span><small>من 100</small></div></div></div>
+    <div class="gradeTitle" id="rGradeTitle"></div>
+    <p class="congrats" id="rCongrats"></p>
+    <div class="stats">
+      <div class="stat ok"><b id="rCor">0</b><span>إجابات صحيحة</span></div>
+      <div class="stat no"><b id="rWro">0</b><span>إجابات خاطئة</span></div>
+      <div class="stat"><b id="rUna">0</b><span>غير مجابة</span></div>
+      <div class="stat"><b id="rPct">0%</b><span>النسبة المئوية</span></div>
+      <div class="stat"><b id="rTime" style="font-size:1.15rem">-</b><span>الزمن المستغرق</span></div>
+    </div>
+    <div class="infoline" style="font-size:.95rem"><span id="rStatus"></span><span id="rDate"></span></div>
+    <div class="status" id="rSend"></div>
+    <div class="actions">
+      <button class="btn" id="btnReview">🔍 مراجعة الإجابات</button>
+      <button class="btn green" id="btnCert">🏆 شهادة الإنجاز</button>
+      <button class="btn ghost" id="btnAgain" style="display:none">🔁 محاولة جديدة</button>
+    </div>
+    <div class="glass credit-card"><div class="credit"><span>إعداد وتصميم:</span><b>رائد السقار – مدرس الدراسات الاجتماعية</b></div><div class="credit"><span>المدرسة:</span><b>مدرسة محمد بن راشد – الحلقة الثانية والثالثة – دبي</b></div></div>
+  </div>
+</section>
+
+<!-- ============ REVIEW ============ -->
+<section id="s-review" class="screen">
+  <div class="rev">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px"><h2 class="gold-text">🔍 مراجعة الإجابات</h2><button class="btn ghost sm" data-go="result">→ العودة إلى النتيجة</button></div>
+    <div id="revList"></div>
+  </div>
+</section>
+
+<!-- ============ CERT ============ -->
+<section id="s-cert" class="screen">
+  <div class="certwrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px"><h2 class="gold-text">🏆 شهادة الإنجاز</h2><button class="btn ghost sm" data-go="result">→ العودة إلى النتيجة</button></div>
+    <canvas id="certCanvas" width="1754" height="1240"></canvas>
+    <div class="actions"><button class="btn big" id="btnPdf">⬇ تحميل الشهادة PDF</button></div>
+  </div>
+</section>
+
+<!-- ============ TEACHER ============ -->
+<section id="s-teacher" class="screen">
+  <div class="tw">
+    <div id="tLogin" class="card formcard">
+      <h2>🔐 لوحة تحكم المعلم</h2>
+      <p class="sub">أدخل كلمة مرور المعلم (المحفوظة في إعدادات Google Apps Script وليس داخل هذه الصفحة)</p>
+      <div class="field"><label for="tPass">كلمة المرور</label><input id="tPass" type="password" autocomplete="current-password"><div class="msg" id="tMsg"></div></div>
+      <div style="text-align:center"><button class="btn green" id="btnTLogin">دخول</button></div>
+    </div>
+    <div id="tDash" style="display:none">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2>📊 لوحة تحكم المعلم – المسابقة الوطنية الكبرى</h2><div class="noprint" style="display:flex;gap:8px"><button class="btn ghost sm" id="tRefresh" style="color:#14231b">🔄 تحديث</button><button class="btn red sm" id="tLogout">خروج</button></div></div>
+        <div class="tstats" id="tStats"></div>
+        <div class="tools">
+          <label>الصف: <select id="tfGrade"><option value="">الكل</option><option>التاسع</option><option>العاشر</option><option>الحادي عشر</option><option>الثاني عشر</option></select></label>
+          <label>الشعبة: <select id="tfSec"><option value="">الكل</option></select></label>
+          <button class="btn sm" id="tCsv">⬇ تنزيل CSV (يفتح في Excel)</button>
+          <button class="btn green sm" id="tPrint">🖨 طباعة تقرير</button>
+        </div>
+        <div class="tblwrap"><table class="t" id="tTable"><thead><tr><th>#</th><th>اسم الطالب</th><th>الصف</th><th>الشعبة</th><th>الدرجة</th><th>النسبة</th><th>الزمن</th><th>التقدير</th><th>الحالة</th><th>البريد</th></tr></thead><tbody></tbody></table></div>
+        <p style="margin-top:8px;color:#4b5f54;font-size:.9rem">الترتيب حسب الدرجة تنازليًا، وعند التساوي حسب الزمن الأقل.</p>
+      </div>
+      <details class="card noprint" style="margin-top:14px"><summary>⚙️ إعدادات المعلم</summary>
+        <div class="sett">
+          <div class="field"><label>الشعب المتاحة (مفصولة بفواصل)</label><input id="sSections"></div>
+          <div class="row2"><div class="field"><label>مدة المسابقة بالدقائق</label><input id="sDur" type="number" min="5" max="180"></div>
+          <div class="field"><label>السماح بإعادة المحاولة</label><select id="sRetry"><option value="0">لا</option><option value="1">نعم</option></select></div></div>
+          <div class="field"><label>حالة المسابقة</label><select id="sOpen"><option value="1">مفتوحة للطلاب</option><option value="0">مغلقة</option></select></div>
+          <div><button class="btn green sm" id="sSave">حفظ الإعدادات</button> <span id="sMsg"></span></div>
+        </div>
+      </details>
+      <details class="card noprint" style="margin-top:14px"><summary style="color:var(--red)">🗑 إعادة ضبط نتائج المسابقة</summary>
+        <p style="margin:10px 0">سيؤدي هذا إلى حذف جميع النتائج والجلسات من جدول Google Sheets نهائيًا. حمّل نسخة CSV قبل المتابعة.</p>
+        <div class="field"><label>اكتب كلمة «حذف» للتأكيد</label><input id="rConfirm"></div>
+        <button class="btn red sm" id="tReset">إعادة الضبط</button> <span id="rMsg"></span>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="modal"><div class="card box"><h3 id="mTitle"></h3><p id="mText"></p><div class="acts" id="mActs"></div></div></div>
+
+<div id="foot">إعداد وتصميم: <b>رائد السقار – مدرس الدراسات الاجتماعية</b> | مدرسة محمد بن راشد – الحلقة الثانية والثالثة – دبي | المسابقة الوطنية الكبرى – عيد الاتحاد الـ55</div>
+
+<script>
+/* ================================================================
+   إعدادات المعلم (الوحدة 1): عدّل هذه القيم فقط
+   ================================================================ */
+const CONFIG = {
+  WEB_APP_URL: "https://script.google.com/macros/s/AKfycbxRbBhwMVYYRnX0Oga70flCZCAvLq-VJE-dnO5qPvjnsh5h-uCyvGVAyNrIiPRWvhaB/exec",
+  DEFAULT_SECTIONS: ["A","B","C","D","E","F","G","H"],
+  DEFAULT_DURATION_MIN: 30,
+  DEFAULT_ALLOW_RETRY: false,
+  QUESTION_COUNT: 25,
+  POINTS_PER_Q: 4
+};
+/* ================================================================
+   بيانات الأسئلة (الوحدة 2) – بدون مفاتيح الإجابة في نسخة الإنتاج
+   ================================================================ */
+const QDATA = /*QDATA*/{"domains":{"1":["🏛️","قيام اتحاد دولة الإمارات"],"2":["🌴","دور الشيخ زايد بن سلطان آل نهيان"],"3":["⚓","دور الشيخ راشد بن سعيد آل مكتوم"],"4":["🤝","الحكام المؤسسون ودورهم"],"5":["📜","وثيقة الاتحاد والدستور"],"6":["🛡️","الاتحاد والقوة والاستقرار"],"7":["🏢","تطور مؤسسات الدولة"],"8":["🇦🇪","الهوية الوطنية الإماراتية"],"9":["🦅","التراث والعادات والتقاليد"],"10":["🏙️","الإنجازات الحضارية والعمرانية"],"11":["📈","الاقتصاد والتنمية المستدامة"],"12":["🎓","التعليم والابتكار والتكنولوجيا"],"13":["🚀","الفضاء والعلوم المتقدمة"],"14":["🕊️","التسامح والتعايش"],"15":["🌍","مكانة الإمارات إقليميًا وعالميًا"],"16":["🌱","مسؤولية الأجيال الجديدة"]},"questions":[{"id":1,"d":1,"level":"الفهم والتطبيق","skill":"فهم تسلسل الأحداث وتطبيقه","text":"أُعلن قيام دولة الإمارات العربية المتحدة في 2 ديسمبر 1971 باتحاد ست إمارات. أردتَ تحديد الإمارة التي لم تكن ضمن الأعضاء عند الإعلان، ثم انضمت إلى الاتحاد في 10 فبراير 1972 فاكتمل بها عدد الإمارات السبع. فأيّ الإمارات الآتية تختار؟","options":["عجمان","رأس الخيمة","الفجيرة","أم القيوين"]},{"id":2,"d":2,"level":"الفهم والتطبيق","skill":"فهم أثر السياسات القيادية","text":"اعتمد الشيخ زايد في بناء الاتحاد على الحوار والإقناع، ووجّه جزءًا كبيرًا من عائدات النفط لخدمة الدولة الناشئة. أيّ نتيجة تفسّر أثر هذه السياسة في الإمارات الأقل موارد آنذاك؟","options":["دعم التعليم والصحة والبنية الأساسية فيها ضمن إطار الدولة الاتحادية","ربط ميزانياتها بميزانية أبوظبي وإلغاء مواردها الخاصة بها نهائيًا منذ عام 1971","حصر مشروعات التنمية في العاصمة الاتحادية وتأجيلها في بقية الإمارات","تأجيل إنشاء المؤسسات الاتحادية إلى أن تتساوى موارد الإمارات كلها"]},{"id":3,"d":3,"level":"التحليل والمقارنة","skill":"تفسير اختلاف نماذج التنمية","text":"اعتمد الشيخ راشد بن سعيد في تنمية دبي على التجارة والموانئ وتعميق الخور، ولم يقتصر على النفط. أيّ تفسير هو الأدق لهذا التوجه عند مقارنته بإمارة أبوظبي؟","options":["لأن دبي لم يكن لها أي نشاط تجاري قبل ستينيات القرن العشرين كله","لأن اتفاقات الاتحاد منعت دبي من إنتاج النفط وتصديره نهائيًا","لأن نفطها كان أقل نسبيًا، فبنت اقتصادًا متنوعًا على موقعها التجاري","لأن أبوظبي كانت تعتمد في تمويلها على النفط المستورد من دبي أساسًا منذ بداية الاتحاد"]},{"id":4,"d":1,"level":"الاستنتاج والتفسير","skill":"استنتاج العلاقة السببية بين الأحداث","text":"يعرض الجدول أحداثًا مهمة في الطريق إلى الاتحاد. ما العلاقة الأدق التي يمكن استنتاجها من تسلسلها؟","table":{"head":["السنة","الحدث"],"rows":[["1952","تأسيس مجلس الإمارات المتصالحة للتشاور والتنسيق"],["يناير 1968","إعلان بريطانيا عزمها إنهاء ارتباطاتها الدفاعية في الخليج بحلول عام 1971"],["18 فبراير 1968","لقاء السميح بين الشيخ زايد والشيخ راشد والاتفاق على السعي إلى الاتحاد"],["2 ديسمبر 1971","إعلان قيام دولة الإمارات العربية المتحدة"]]},"options":["كان الاتحاد قائمًا قبل الإعلان البريطاني، وكان هو السبب في الانسحاب","فرض الإعلان البريطاني الاتحاد على الحكام دون أي مشاورات أو اتصالات بينهم قبل ذلك","كان مجلس عام 1952 دولة اتحادية كاملة الصلاحيات والسيادة الخارجية","حفّز الانسحاب البريطاني المعلن الحكام على تسريع الاتحاد بعد تعاون محدود"]},{"id":5,"d":6,"level":"التحليل والمقارنة","skill":"المقارنة بين الوضع قبل الاتحاد وبعده","text":"قارن بين وضع الإمارات قبل عام 1971 وبعده. أيّ العبارات الآتية أدق؟","options":["كان للإمارات جيش اتحادي موحد قبل عام 1971، وبعد الاتحاد صارت لكل إمارة سياسة خارجية مستقلة","لم يتغير شيء سوى الاسم، فبقيت كل إمارة مسؤولة عن سياستها الخارجية ودفاعها كما كانت قبل 1971","كل إمارة كيان منفصل ترتبط بمعاهدات مع بريطانيا، ثم دولة واحدة بسياسة خارجية ودفاعية اتحادية","كانت الإمارات تتبع حكومة مركزية في أبوظبي قبل 1971، وبعد الاتحاد صارت كل إمارة تدير أمنها بنفسها"]},{"id":6,"d":4,"level":"الاستنتاج والتفسير","skill":"تفسير دلالات الترتيب السياسي","text":"تولى الشيخ زايد رئاسة الدولة، وتولى الشيخ راشد منصب نائب الرئيس، مع استمرار كل منهما حاكمًا لإمارته. ما أبرز دلالة لهذا الترتيب على نجاح قيام الاتحاد؟","options":["انتقال سلطات الحكام كاملة إلى العاصمة الاتحادية وإنهاء الحكم المحلي في كل إمارة من الإمارات","قيادة اتحادية مشتركة مع بقاء الحكم المحلي، فتوازنت الوحدة مع خصوصية كل إمارة","إلغاء المجلس الأعلى للاتحاد وحصر القرار الاتحادي في شخص واحد فقط","استبعاد بقية الحكام من القرار الاتحادي لتسريع الإجراءات والحسم فيها"]},{"id":7,"d":5,"level":"الاستنتاج والتفسير","skill":"تفسير التحول الدستوري","text":"جاء دستور الاتحاد مؤقتًا عام 1971، ثم أُقرّ دستورًا دائمًا عام 1996 مع تحديد أبوظبي عاصمة للدولة. ما الدلالة الأدق لتحويله إلى دستور دائم؟","options":["ثقة القيادة والمجتمع بنجاح التجربة الاتحادية واستقرارها بعد نحو ربع قرن","فشل الصيغة الأولى للاتحاد واضطرار الدولة إلى استبدالها بنظام مختلف تمامًا","انضمام إمارة جديدة لم يكن الدستور المؤقت يسمح بانضمامها إلى الاتحاد","التحول من النظام الاتحادي إلى نظام مركزي تُدار فيه الإمارات من العاصمة"]},{"id":8,"d":5,"level":"التحليل والمقارنة","skill":"التمييز بين الاختصاص الاتحادي والمحلي","text":"يوزع الدستور الاختصاصات بين الاتحاد والإمارات. أيّ زوج من الاختصاصات الآتية يمثل على الترتيب اختصاصًا اتحاديًا ثم اختصاصًا محليًا؟","options":["الشؤون الخارجية والدفاع — إصدار العملة وتحديد الجنسية الاتحادية","إدارة الخدمات البلدية — الشؤون الخارجية والدفاع في الدولة كلها","إصدار العملة الوطنية — توقيع المعاهدات الدولية باسم الدولة كلها","الشؤون الخارجية والدفاع — إدارة الخدمات البلدية في كل إمارة"]},{"id":9,"d":8,"level":"الفهم والتطبيق","skill":"فهم دلالة المناسبات الوطنية","text":"يحتفل الإماراتيون بيوم العلم في 3 نوفمبر من كل عام. أيّ عبارة تعبّر بدقة عن دلالة هذه المناسبة؟","options":["ذكرى إعلان قيام الاتحاد في 2 ديسمبر 1971 وبدء العمل بالدستور المؤقت للدولة الجديدة ومؤسساتها","ذكرى اعتماد الدستور الدائم عام 1996 وتحديد أبوظبي عاصمة للدولة الاتحادية","مناسبة سنوية لتعزيز الانتماء للعلم رمز الوحدة، ترتبط بتولي الشيخ خليفة الحكم عام 2004","ذكرى انضمام رأس الخيمة إلى الاتحاد في فبراير 1972 واكتمال عدد الإمارات"]},{"id":10,"d":7,"level":"الاستنتاج والتفسير","skill":"استنتاج من جدول زمني للمؤسسات","text":"يعرض الجدول بعض المؤسسات والقرارات الاتحادية في السنوات الأولى للدولة. ما الاستنتاج الأنسب الذي يدعمه الجدول؟","table":{"head":["السنة","المؤسسة أو القرار"],"rows":[["1973","إصدار الدرهم الإماراتي عملةً موحدة"],["1975","تأسيس الاتحاد النسائي العام"],["1976","توحيد القوات المسلحة"],["1976","تأسيس جامعة الإمارات العربية المتحدة"]]},"options":["اكتمل بناء مؤسسات الدولة كلها قبل قيام الاتحاد عام 1971","سعى الاتحاد إلى بناء مؤسسات موحدة اقتصادية واجتماعية وعسكرية وتعليمية","انحصرت مؤسسات الاتحاد في الجانب العسكري وحده خلال سنواته الأولى","أُلغيت المؤسسات المحلية في الإمارات كلها بعد قيام الاتحاد مباشرة وحلت محلها مؤسسات اتحادية"]},{"id":11,"d":12,"level":"التحليل والمقارنة","skill":"المقارنة بين مرحلتين تعليميتين","text":"قارن بين التعليم في المنطقة قبل قيام الاتحاد وبعده. أيّ المقارنات الآتية أدق؟","options":["كان لدى الدولة قبل الاتحاد نظام جامعي واسع النطاق، وبعده اقتصر التعليم على الكتاتيب فقط","لم يختلف التعليم بين المرحلتين من حيث الانتشار والتنظيم والمناهج","كانت هناك قبل الاتحاد وزارة اتحادية للمناهج، وبعده صارت لكل إمارة مناهج لا صلة بينها","قبل الاتحاد: تعليم محدود وكتاتيب؛ بعده: مدارس حكومية واسعة وجامعة الإمارات (1976)"]},{"id":12,"d":12,"level":"الفهم والتطبيق","skill":"تطبيق مفهوم التحول الرقمي","text":"أيّ الإجراءات الآتية يعكس مباشرةً توجه الإمارات إلى توظيف التقنيات المتقدمة في العمل الحكومي؟","options":["تعيين أول وزير دولة للذكاء الاصطناعي في العالم عام 2017","إعلان عام 2017 «عام الخير» لتعزيز قيم العطاء في المجتمع","إنشاء وزارة للتسامح عام 2016 لتعزيز قيم التعايش بين الجنسيات","إعلان عام 2018 «عام زايد» احتفاءً بمئوية ميلاد المؤسس"]},{"id":13,"d":9,"level":"الاستنتاج والتفسير","skill":"استنتاج القاسم المشترك بين عناصر التراث","text":"تضم قوائم اليونسكو للتراث الثقافي غير المادي ممارسات إماراتية مثل الصقارة والمجلس والقهوة العربية. ما القاسم المشترك الأدق بينها؟","options":["مواقع مادية قديمة تحتاج إلى ترميم وصيانة مستمرة من الجهات المختصة في الدولة","أنشطة اقتصادية حديثة نشأت بعد قيام الاتحاد عام 1971","عادات خاصة بفئة عمرية واحدة تندثر بانتهاء هذه المرحلة","ممارسات حية تنتقل بين الأجيال وتعزز الهوية والتماسك الاجتماعي"]},{"id":14,"d":8,"level":"التحليل والمقارنة","skill":"المقارنة بين مظهر الهوية وجوهرها","text":"شارك أربعة طلاب في فعاليات اليوم الوطني. أيّ المشاهد الآتية يعبّر عن الهوية الوطنية بعمق، وليس بمظهرها فقط؟","options":["طالب يرتدي ألوان العلم في الحفل لكنه يخالف أنظمة المدرسة طوال العام","طالبة تعتز بلغتها العربية وتحترم القوانين وتنوع زملائها وتتطوع طوال العام","طالب ينشر صور الحفل على مواقع التواصل ولا يشارك في أي نشاط","طالب يحفظ نصوص الاحتفال ويستعرضها أمام زملائه في الحفل دون ممارسة قيمها في حياته اليومية"]},{"id":15,"d":10,"level":"التحليل والمقارنة","skill":"تحليل مشروعات البنية التحتية","text":"افتُتح ميناء راشد في دبي عام 1972، ثم افتُتح ميناء جبل علي عام 1979 ليكون من أكبر الموانئ المصنوعة في العالم. عند المقارنة بين المشروعين، ما الاستنتاج الأدق؟","options":["أُلغي الميناء الأول عند افتتاح الثاني لانتفاء الحاجة إليه","أُنشئ المشروعان لدعم الصيد التقليدي واستخراج اللؤلؤ وحدهما دون أي علاقة بالتجارة الخارجية","الانتقال إلى ميناء أكبر يعكس رؤية تنموية لتلبية نمو التجارة العالمية","أُنشئ الميناء الثاني لأن الأول أُغلق بسبب نضوب النفط في دبي"]},{"id":16,"d":10,"level":"الاستنتاج والتفسير","skill":"استنتاج من بيانات عن المعالم","text":"يعرض الجدول بعض المعالم الحضارية في الإمارات. ما الاستنتاج الأدق الذي يمكن استخلاصه منه؟","table":{"head":["المعلم","الإمارة","سنة الافتتاح"],"rows":[["جامع الشيخ زايد الكبير","أبوظبي","2007"],["برج خليفة","دبي","2010"],["متحف اللوفر أبوظبي","أبوظبي","2017"],["متحف المستقبل","دبي","2022"]]},"options":["تنوع المعالم بين الديني والعمراني والثقافي والتقني يدل على تنمية متعددة الأوجه","جميع المعالم تقع في إمارة واحدة هي أبوظبي دون غيرها من إمارات الدولة الأخرى كلها","جميع المعالم افتُتحت قبل عام 2000 في مراحل بناء الدولة الأولى","جميع المعالم متاحف ثقافية فقط تهدف إلى جذب الزوار والسياح"]},{"id":17,"d":13,"level":"الفهم والتطبيق","skill":"تطبيق المعرفة عن الإنجازات الفضائية","text":"نفّذ رائد الفضاء الإماراتي سلطان النيادي عام 2023 مهمة على متن محطة الفضاء الدولية. أيّ وصف ينطبق على إنجازه؟","options":["أول إماراتي يصعد إلى الفضاء الخارجي في تاريخ الدولة","أول إماراتي يهبط على سطح القمر ضمن مهمة فضائية دولية","أول عربي يتولى قيادة محطة الفضاء الدولية بعد انتهاء مدة مهمة من سبقه من الرواد","أول رائد فضاء عربي ينفذ مهمة طويلة (نحو ستة أشهر) ويقوم بسير في الفضاء"]},{"id":18,"d":14,"level":"التحليل والمقارنة","skill":"التمييز بين مستويات التسامح","text":"تنظر مقاربة أولى إلى التسامح على أنه شعور فردي فقط، وتراه مقاربة ثانية سياسة دولة. أيّ مثال يدعم المقاربة الثانية؟","options":["ارتياح شخص لجاره المختلف عنه في الدين أو الثقافة أو اللغة وحسن تعامله معه يوميًا","تبادل الهدايا بين زملاء العمل في مناسبة خاصة أو احتفال","تشريعات ومؤسسات، كقانون مكافحة التمييز والكراهية (2015) ووزارة التسامح (2016)","انتشار عبارات المجاملة بين الناس في وسائل التواصل الاجتماعي"]},{"id":19,"d":11,"level":"حل المشكلات واتخاذ القرار","skill":"اتخاذ قرار تنموي","text":"تعتمد إمارة افتراضية على مورد طبيعي وحيد قابل للنضوب، وتراجع سعره عالميًا، وتريد المحافظة على النمو. أيّ قرار هو الأنسب في ضوء التجربة الإماراتية؟","options":["زيادة الاعتماد على هذا المورد وحده لتعويض التراجع في الأسعار وانخفاض الإيرادات","تنويع مصادر الدخل بالتجارة والصناعة والسياحة والخدمات والاستثمار في الإنسان","إيقاف مشروعات التنمية كلها إلى أن يرتفع سعر المورد مرة أخرى","الاعتماد على الاقتراض الخارجي بديلًا دائمًا عن الإنتاج المحلي"]},{"id":20,"d":11,"level":"حل المشكلات واتخاذ القرار","skill":"حل مشكلة الاستدامة المائية","text":"تعاني دولة صحراوية قليلة المياه العذبة من ارتفاع الطلب على المياه بسبب النمو السكاني. أيّ حزمة قرارات هي الأكثر استدامة؟","options":["تحلية أكفأ بالطاقة المتجددة، مع ترشيد الاستهلاك وإعادة استخدام المياه المعالجة","التوسع في زراعة محاصيل كثيفة الاستهلاك للمياه لتحقيق الاكتفاء الذاتي في الغذاء بسرعة","الاعتماد على المياه الجوفية دون قيود لتلبية الطلب المتزايد","إيقاف المشروعات الجديدة جميعها إلى حين انخفاض عدد السكان"]},{"id":21,"d":14,"level":"حل المشكلات واتخاذ القرار","skill":"اتخاذ قرار قائم على قيم التسامح","text":"تُعدّ مدرستك فعالية للاحتفال باليوم الوطني، وطلابها من جنسيات وثقافات متعددة، واقترح بعضهم قصر المشاركة على فئة واحدة. أيّ قرار ينسجم مع قيم التسامح والتعايش والهوية الوطنية؟","options":["قصر الفعالية على فئة واحدة من الطلاب لتسهيل التنظيم والإدارة وتقليل التكاليف والجهد المبذول","إلغاء الفعالية كلها تجنبًا للخلاف بين الطلاب وأولياء الأمور","ترك التنظيم لأعلى الأصوات في اللجنة دون ضوابط واضحة","فعالية تبرز التراث الإماراتي إطارًا جامعًا يشارك فيه الجميع باحترام القيم والقوانين"]},{"id":22,"d":16,"level":"حل المشكلات واتخاذ القرار","skill":"التصرف المسؤول مع المعلومات","text":"وصلتك رسالة من مصدر مجهول تتضمن معلومة صادمة عن الاتحاد أو أحد الرموز الوطنية، وتطلب نشرها فورًا. ما التصرف الأنسب؟","options":["نشرها فورًا في مجموعات التواصل لتنبيه أكبر عدد من الناس","تجاهلها تمامًا أيًا كان محتواها وعدم إخبار أحد بها أو الإبلاغ عنها في أي وقت لاحق","التحقق من القنوات الرسمية قبل التداول، وعدم نشر ما لم يثبت، والإبلاغ عن المضلل","نشرها مع عبارة «منقول» لإخلاء المسؤولية عن صحة ما فيها"]},{"id":23,"d":6,"level":"التفكير الناقد والتقييم","skill":"تقييم ادعاء أحادي السبب","text":"قال متحدث: «نجح الاتحاد لأن الإمارات تملك النفط فقط». ما التقييم الأدق لهذا الادعاء؟","options":["صحيح تمامًا، فالنفط هو العامل الوحيد المفسر لنجاح الدول في العالم كله على مر العصور","صحيح، لأن موارد جميع الإمارات النفطية كانت متساوية عند قيام الاتحاد","غير مهم، لأن أسباب نجاح الدول لا تُناقش ولا يُبحث فيها علميًا أبدًا","ناقص؛ فالنفط وفّر موارد، لكن الاتحاد قام أيضًا على إرادة الحكام والمؤسسات والتخطيط"]},{"id":24,"d":13,"level":"التفكير الناقد والتقييم","skill":"تقييم الحجج وتقديم الدليل","text":"يقول ناقد: «الإنفاق على برامج الفضاء ترف لا حاجة إليه». أيّ ردّ هو الأقوى والأكثر اتساقًا مع الأدلة؟","options":["الفضاء مجال تتنافس فيه دول أخرى كثيرة، فعلينا أن نشارك فيه أيضًا حتى لا نتخلف عنها","مسبار الأمل بنى كفاءات وطنية وقدّم بيانات علمية عن المريخ ودعم قطاعات تقنية متقدمة","الفضاء أجمل من الأرض ولذلك يستحق الإنفاق مهما بلغت تكلفته","الإنفاق الحكومي لا يخضع للتقييم أصلًا ولا يحق لأحد انتقاده"]},{"id":25,"d":15,"level":"التفكير الناقد والتقييم","skill":"الحكم على قوة الأدلة","text":"أراد باحث أن يحكم على صحة العبارة: «للإمارات حضور مؤثر في الساحة الدولية». أيّ الأدلة الآتية هو الأقوى؟","options":["استضافة COP28 في دبي عام 2023 وإكسبو 2020 دبي وشراكات دولية متعددة","ارتفاع أحد المباني في إحدى المدن الكبرى مقارنة بأعلى المباني في مدن العالم الأخرى","تنوع الجنسيات المقيمة وحده دون النظر إلى دور الدولة الدولي","كثرة الصور السياحية المنشورة عن الدولة في وسائل التواصل"]}]}/*QEND*/;
+/* مفتاح الإجابات المحلي: موجود فقط في demo.html، ويكون null في index.html */
+const LOCALKEY = /*LOCALKEY*/null/*LKEND*/;
+</script>
+<script>
+(function(){
+'use strict';
+/* ============ الوحدة 3: أدوات عامة ============ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const p2=n=>String(n).padStart(2,'0');
+const LET=['أ','ب','ج','د'];
+const QS=QDATA.questions, DOM=QDATA.domains, N=CONFIG.QUESTION_COUNT;
+const SERVER=!!CONFIG.WEB_APP_URL;
+const DEMO=!SERVER && !!LOCALKEY;
+const BROKEN=!SERVER && !LOCALKEY;
+const SKEY='uae55.contest.v1';
+const mem={};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return mem[k]||null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}},del(k){try{localStorage.removeItem(k)}catch(e){delete mem[k]}}};
+function mmss(ms){const s=Math.max(0,Math.ceil(ms/1000));return p2(Math.floor(s/60))+':'+p2(s%60)}
+function durText(sec){sec=Math.max(0,Math.round(sec));return Math.floor(sec/60)+' دقيقة و '+(sec%60)+' ثانية'}
+function gradeTitle(sc){return sc>=90?'بطل الاتحاد المتميز':sc>=80?'خبير وطني':sc>=70?'مبدع إماراتي':sc>=60?'مستكشف وطني':'مواطن طموح'}
+function congrats(sc){
+  if(sc>=90)return 'أداء استثنائي! أنت حقًا من أبطال الاتحاد، فكرك وتحليلك يليقان بوطن لا يعرف المستحيل.';
+  if(sc>=80)return 'أحسنت! معرفة وطنية عميقة وتفكير متميز، واصل التقدم نحو القمة.';
+  if(sc>=70)return 'عمل مبدع! لديك أساس قوي، وبقليل من التأمل في مسيرة الاتحاد ستصل إلى أعلى المراتب.';
+  if(sc>=60)return 'بداية موفقة يا مستكشف! راجع إجاباتك وتعلّم من التفسيرات لتكتشف المزيد عن وطنك.';
+  return 'شكرًا لمشاركتك! كل رحلة تبدأ بخطوة، فراجع التفسيرات وأعد التفكير في مسيرة الاتحاد بحماس.';
+}
+function normName(s){return String(s||'').replace(/\s+/g,' ').trim()}
+function validName(s){s=normName(s);if(s.length<5||s.length>60)return false;if(!/^[\u0621-\u064A\u064B-\u065F\u0671A-Za-z .'\-]+$/.test(s))return false;const w=s.split(' ').filter(x=>x.length>=2);return w.length>=2}
+function toast(msg,warn){const t=$('#toast');t.textContent=msg;t.className='toast show'+(warn?' warn':'');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2200)}
+function uuid(){try{return crypto.randomUUID()}catch(e){return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,10)}}
+function modal(title,text,acts){$('#mTitle').textContent=title;$('#mText').textContent=text;const a=$('#mActs');a.innerHTML='';acts.forEach(x=>{const b=document.createElement('button');b.className='btn '+(x.cls||'');b.textContent=x.t;b.onclick=()=>{$('#modal').classList.remove('show');x.f&&x.f()};a.appendChild(b)});$('#modal').classList.add('show')}
+
+/* ============ الوحدة 4: رسومات SVG ============ */
+const flagSVG=`<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="علم دولة الإمارات العربية المتحدة"><defs><linearGradient id="fsh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".35" stop-color="#000" stop-opacity=".18"/><stop offset=".7" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity=".2"/></linearGradient></defs><rect x="0" y="0" width="6" height="170" fill="#d4af37"/><g transform="translate(6,5)"><rect width="294" height="160" fill="#fff"/><rect x="0" y="0" width="294" height="54" fill="#00732F"/><rect x="0" y="106" width="294" height="54" fill="#000"/><rect x="0" y="0" width="76" height="160" fill="#CE1126"/><rect width="294" height="160" fill="url(#fsh)"><animateTransform attributeName="transform" type="translate" values="-30 0;30 0;-30 0" dur="4s" repeatCount="indefinite"/></rect></g></svg>`;
+const sceneSVG=`<svg viewBox="0 0 1200 230" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="dn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b552"/><stop offset="1" stop-color="#6b4f10"/></linearGradient><linearGradient id="dn2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8903a"/><stop offset="1" stop-color="#3e2c08"/></linearGradient><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f2b1d"/><stop offset="1" stop-color="#050c08"/></linearGradient><radialGradient id="pe" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfc8b8"/></radialGradient></defs>
+<path d="M0,170 C120,120 240,150 360,160 C480,170 600,110 760,140 C900,168 1040,120 1200,150 L1200,230 L0,230Z" fill="url(#dn2)" opacity=".75"/>
+<g fill="url(#sk)" stroke="#D4AF37" stroke-width="1" stroke-opacity=".55">
+<!-- برج خليفة -->
+<path d="M588,190 V138 L594,138 V104 L599,104 V70 L603,70 L604,14 L606,14 L607,70 L611,70 V104 L616,104 V138 L622,138 V190Z"/>
+<rect x="530" y="130" width="22" height="60"/><rect x="556" y="112" width="24" height="78"/><rect x="630" y="120" width="26" height="70"/><rect x="660" y="140" width="22" height="50"/><rect x="500" y="150" width="24" height="40"/><rect x="690" y="152" width="30" height="38"/>
+<!-- قصر الوطن (قباب) -->
+<path d="M280,190 V150 H410 V190Z"/><path d="M300,150 C300,116 390,116 390,150Z"/><path d="M335,120 C338,96 352,96 355,120Z"/><rect x="344" y="84" width="2" height="14"/>
+<path d="M285,150 C285,134 311,134 311,150Z"/><path d="M379,150 C379,134 405,134 405,150Z"/>
+<!-- حصن -->
+<path d="M90,190 V120 H100 V112 H110 V120 H122 V112 H132 V120 H144 V112 H154 V120 H164 V190Z"/><path d="M60,190 V140 H70 V134 H78 V140 H90 V190Z"/><path d="M164,190 V146 H174 V140 H184 V146 H196 V190Z"/>
+<!-- سفينة شراعية -->
+<path d="M930,184 C960,206 1060,206 1100,176 L1088,182 C1050,196 970,196 944,180Z" fill="#3b2a0c"/><path d="M1018,182 L1018,92 L1062,176Z" fill="#f4e8bf" stroke="none"/><path d="M1012,182 L1012,110 L972,176Z" fill="#e7d79b" stroke="none"/><rect x="1016" y="84" width="2" height="98" fill="#3b2a0c"/>
+</g>
+<circle cx="880" cy="178" r="10" fill="url(#pe)"/>
+<path d="M0,200 C150,175 280,205 430,195 C580,185 700,210 860,196 C1000,184 1100,205 1200,190 L1200,230 L0,230Z" fill="url(#dn)"/></svg>`;
+$('#homeFlag').innerHTML=flagSVG; $('#sceneBox').innerHTML=sceneSVG;
+
+/* ============ الوحدة 5: الجسيمات والمؤثرات ============ */
+const cv=$('#fx'),cx=cv.getContext('2d');let parts=[],ambient=true;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}addEventListener('resize',rs);rs();
+function ambientInit(){for(let i=0;i<28;i++)parts.push({amb:1,x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+.6,vy:-(Math.random()*.4+.15),vx:(Math.random()-.5)*.3,a:Math.random()*.6+.2})}
+function burst(x,y,n,pal){pal=pal||['#D4AF37','#f4dc8a','#CE1126','#00732F','#ffffff'];for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=Math.random()*6+2;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3,g:.16,r:Math.random()*4+2,c:pal[(Math.random()*pal.length)|0],life:70+Math.random()*40,rot:Math.random()*6,sq:Math.random()>.5})}}
+function confetti(){for(let k=0;k<5;k++)setTimeout(()=>burst(Math.random()*cv.width,cv.height*.25,60),k*250)}
+function sadFx(){for(let i=0;i<14;i++)parts.push({x:Math.random()*cv.width,y:-10,vx:(Math.random()-.5)*.6,vy:Math.random()*2+1.5,g:0,r:Math.random()*3+2,c:'#ff6b7a',life:70,sq:false})}
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function loop(){cx.clearRect(0,0,cv.width,cv.height);
+  for(let i=parts.length-1;i>=0;i--){const p=parts[i];
+    if(p.amb){p.x+=p.vx;p.y+=p.vy;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}cx.globalAlpha=p.a*(ambient?1:0);cx.fillStyle='#f4dc8a';cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill();continue}
+    p.x+=p.vx;p.y+=p.vy;p.vy+=p.g||0;p.life--;cx.globalAlpha=Math.max(0,Math.min(1,p.life/30));cx.fillStyle=p.c;
+    if(p.sq){cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot+=.1);cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore()}else{cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()}
+    if(p.life<=0)parts.splice(i,1)}
+  cx.globalAlpha=1;requestAnimationFrame(loop)}
+if(!reduce){ambientInit();loop()}else{burst=confetti=sadFx=()=>{}}
+
+/* ============ الوحدة 6: الحالة والتخزين ============ */
+let S=null;
+try{S=JSON.parse(store.get(SKEY)||'null')}catch(e){S=null}
+if(!S||S.v!==1)S={v:1,stage:'home'};
+function save(){store.set(SKEY,JSON.stringify(S))}
+let CFGS={sections:CONFIG.DEFAULT_SECTIONS.slice(),durationMin:CONFIG.DEFAULT_DURATION_MIN,allowRetry:CONFIG.DEFAULT_ALLOW_RETRY,open:true};
+
+/* ============ الوحدة 7: التنقل ============ */
+function show(id){$$('.screen').forEach(s=>s.classList.remove('active'));const el=$('#s-'+id);el.classList.add('active');scrollTo(0,0);ambient=(id==='home');}
+$$('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+
+/* ============ الوحدة 8: الاتصال بالخادم ============ */
+async function api(action,payload,timeout){
+  const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),timeout||20000);
+  try{
+    const r=await fetch(CONFIG.WEB_APP_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({action},payload||{})),signal:ctl.signal,redirect:'follow'});
+    const j=await r.json();return j;
+  }catch(e){return {ok:false,code:'NETWORK',error:String(e&&e.message||e)}}
+  finally{clearTimeout(to)}
+}
+const ERR={ALREADY_DONE:'تم تسليم هذه المسابقة مسبقًا لهذا الطالب. للمحاولة مرة أخرى يلزم إذن المعلم.',CLOSED:'المسابقة مغلقة حاليًا. تواصل مع معلمك.',INVALID:'البيانات المدخلة غير صحيحة. راجع الاسم والصف والشعبة.',RATE:'محاولات كثيرة خلال وقت قصير. انتظر دقيقة ثم أعد المحاولة.',NETWORK:'تعذر الاتصال بالخادم. تحقق من الإنترنت ثم أعد المحاولة.',BAD_TOKEN:'جلسة المسابقة غير صالحة.',AUTH:'كلمة المرور غير صحيحة.',LOCKED:'تم إيقاف المحاولات مؤقتًا بعد عدة محاولات خاطئة. حاول لاحقًا.'};
+const errMsg=r=>ERR[r&&r.code]||(r&&r.error)||'حدث خطأ غير متوقع.';
+
+/* ============ الوحدة 9: الصفحة الرئيسية والتسجيل ============ */
+function fillSections(sel,list,first){sel.innerHTML='<option value="">'+first+'</option>'+list.map(x=>'<option>'+esc(x)+'</option>').join('')}
+async function loadCfg(){
+  if(SERVER){const r=await api('config',{},12000);if(r&&r.ok&&r.settings){CFGS=Object.assign(CFGS,r.settings)}}
+  fillSections($('#inSec'),CFGS.sections,'اختر الشعبة');$('#wDur').textContent='⏱ '+CFGS.durationMin+' دقيقة';
+  $('#li-timer').textContent='يوجد مؤقت زمني تنازلي للمسابقة ('+CFGS.durationMin+' دقيقة).';
+}
+function homeSetup(){
+  const n=$('#homeNotice');n.innerHTML='';
+  if(BROKEN)n.innerHTML='<div class="notice bad" style="max-width:760px;margin:14px auto">⚠ لم يتم ربط خدمة المسابقة بعد. على المعلم ضبط WEB_APP_URL كما في دليل README.md قبل مشاركة الرابط مع الطلاب.</div>';
+  if(DEMO)n.innerHTML='<div class="notice" style="max-width:760px;margin:14px auto">نسخة تجريبية محلية: النتائج تُحفظ على هذا الجهاز فقط ولا تُرسل إلى البريد. للتشغيل الفعلي استخدم index.html بعد ربط الخدمة.</div>';
+  $('#btnStart').textContent=(S.stage==='done'&&!CFGS.allowRetry)?'🏆 عرض نتيجتك':(S.stage==='running'||S.stage==='wait')?'↩ متابعة المسابقة':'🇦🇪 ابدأ رحلتك في تحدي الاتحاد';
+  $('#btnStart').disabled=BROKEN;
+}
+$('#btnStart').onclick=()=>{
+  if(S.stage==='running'){return resumeQuiz()}
+  if(S.stage==='wait'){return pendingScreen()}
+  if(S.stage==='done'){ if(!CFGS.allowRetry){return showResult(true)} S={v:1,stage:'home'};save() }
+  if(S.stage==='ready'&&S.student){return readyScreen()}
+  show('register');
+};
+function setErr(id,m){const f=$('#'+id);f.classList.toggle('err',!!m);$('.msg',f).textContent=m||''}
+$('#regForm').onsubmit=e=>{
+  e.preventDefault();
+  const name=normName($('#inName').value),grade=$('#inGrade').value,sec=$('#inSec').value;let ok=true;
+  setErr('f-name',validName(name)?'':'اكتب الاسم الثلاثي أو الكامل بحروف عربية أو إنجليزية (كلمتان على الأقل).');ok=ok&&validName(name);
+  setErr('f-grade',grade?'':'اختر الصف الدراسي.');ok=ok&&!!grade;
+  setErr('f-sec',sec?'':'اختر الشعبة.');ok=ok&&!!sec;
+  if(!ok)return;
+  S={v:1,stage:'ready',student:{name,grade,section:sec}};save();readyScreen();
+};
+function readyScreen(){
+  $('#wName').textContent='مرحبًا بك يا '+S.student.name;
+  $('#wGrade').textContent='الصف: '+S.student.grade;$('#wSec').textContent='الشعبة: '+S.student.section;
+  $('#readyNotice').innerHTML='';$('#btnGo').disabled=false;show('ready');burst(innerWidth/2,innerHeight/3,60);
+}
+
+/* ============ الوحدة 10: بدء المسابقة والمؤقت ============ */
+$('#btnGo').onclick=async()=>{
+  const b=$('#btnGo');b.disabled=true;$('#readyNotice').innerHTML='';
+  let dur=CFGS.durationMin*60000;
+  if(SERVER){
+    b.textContent='جارٍ تجهيز المسابقة...';
+    const r=await api('start',{name:S.student.name,grade:S.student.grade,section:S.student.section});
+    b.textContent='🚀 ابدأ المسابقة الآن';
+    if(!r.ok){$('#readyNotice').innerHTML='<div class="notice bad">'+esc(errMsg(r))+'</div>';b.disabled=false;return}
+    S.token=r.token;S.startMs=r.startMs;S.offset=r.serverNow-Date.now();dur=r.durationMs;S.resumed=!!r.resumed;
+  }else{S.token='local-'+uuid();S.startMs=Date.now();S.offset=0}
+  S.durMs=dur;S.answers=Array(N).fill(-1);S.ts=Array(N).fill(null);S.idx=0;S.sel=-1;S.sid=uuid();S.stage='running';S.warned=false;save();
+  startQuiz();
+};
+let tick=null;
+function nowS(){return Date.now()+(S.offset||0)}
+function remaining(){return S.durMs-(nowS()-S.startMs)}
+function startQuiz(){
+  $('#qWho').textContent=S.student.name+' | '+S.student.grade+' / '+S.student.section;
+  show('quiz');renderQ(true);clearInterval(tick);tick=setInterval(onTick,250);onTick();
+}
+function resumeQuiz(){ if(!S.answers){S.stage='ready';save();return readyScreen()} startQuiz(); }
+function onTick(){
+  const rem=remaining(),t=$('#timer');$('#tTxt').textContent=mmss(rem);
+  const m=rem/60000;t.className='timer '+(m>10?'g':m>5?'y':'r');
+  if(m<=5&&!S.warned&&rem>0){S.warned=true;save();toast('⏰ تنبيه: تبقّى 5 دقائق فقط!',true)}
+  if(rem<=0){clearInterval(tick);toast('انتهى الوقت!',true);finish('timeout')}
+}
+function renderQ(first){
+  const i=S.idx,q=QS[i];if(!q){return finish('completed')}
+  const d=DOM[q.d]||['📌',''];
+  let tbl='';if(q.table){tbl='<table class="qtable"><thead><tr>'+q.table.head.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+q.table.rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
+  $('#qHost').innerHTML='<div class="card qcard in" id="qc"><div class="qmeta"><div class="qicon">'+d[0]+'</div><div><div class="qdom">'+esc(d[1])+'</div></div></div><div class="qtext">'+esc(q.text)+'</div>'+tbl+'<div class="opts" role="radiogroup">'+q.options.map((o,k)=>'<button type="button" class="opt'+(S.sel===k?' sel':'')+'" role="radio" aria-checked="'+(S.sel===k)+'" data-k="'+k+'"><span class="l">'+LET[k]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';
+  $$('.opt').forEach(b=>b.onclick=()=>{S.sel=+b.dataset.k;save();$$('.opt').forEach(x=>{const on=+x.dataset.k===S.sel;x.classList.toggle('sel',on);x.setAttribute('aria-checked',on)});$('#btnNext').disabled=false});
+  $('#qNum').textContent=p2(i+1)+' / '+N;$('#pFill').style.width=(i/N*100)+'%';
+  const last=i===N-1;$('#btnNext').textContent=last?'تأكيد الإجابة وتسليم المسابقة ✔':'تأكيد الإجابة والانتقال للسؤال التالي ←';
+  $('#btnNext').disabled=S.sel<0;
+  $('#qHint').textContent=last?'هذا هو السؤال الأخير':'لا يمكن الرجوع للسؤال السابق';
+  if(!first)scrollTo(0,0);
+}
+$('#btnNext').onclick=()=>{
+  if(S.sel<0||S.stage!=='running')return;
+  const rect=$('#btnNext').getBoundingClientRect();
+  if(S.idx===N-1){
+    modal('تسليم المسابقة','هل أنت متأكد من تسليم إجاباتك الآن؟ لا يمكن التعديل بعد التسليم.',[{t:'نعم، سلّم',cls:'green',f:()=>commit(rect)},{t:'مراجعة السؤال',cls:'ghost'}]);return;
+  }
+  commit(rect);
+};
+function commit(rect){
+  S.answers[S.idx]=S.sel;S.ts[S.idx]=Math.max(0,nowS()-S.startMs);S.sel=-1;S.idx++;save();
+  burst(rect.left+rect.width/2,rect.top,26,['#D4AF37','#f4dc8a','#fff']);toast('✓ تم تسجيل إجابتك');
+  if(S.idx>=N){return finish('completed')}
+  const c=$('#qc');c.classList.remove('in');c.classList.add('out');setTimeout(()=>renderQ(false),200);
+}
+
+/* ============ الوحدة 11: التسليم والتصحيح ============ */
+function localGrade(){
+  const key=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(LOCALKEY),c=>c.charCodeAt(0)^0x5A)));
+  let cor=0,wro=0,una=0;const review=[];
+  for(let i=0;i<N;i++){const a=S.answers[i];if(a<0)una++;else if(a===key[i].a)cor++;else wro++;review.push({c:key[i].a,e:key[i].e})}
+  return {cor,wro,una,review};
+}
+async function finish(reason){
+  if(S.stage!=='running')return;
+  clearInterval(tick);
+  const limit=S.durMs;const el=Math.min(limit,nowS()-S.startMs);
+  S.stage='wait';S.reason=reason;S.elapsedMs=Math.max(0,el);S.submittedAt=new Date().toISOString();save();
+  confetti();
+  await sendSubmission();
+}
+async function sendSubmission(){
+  if(!SERVER){
+    const g=localGrade(),score=g.cor*CONFIG.POINTS_PER_Q;
+    S.result={score,correct:g.cor,wrong:g.wro,unanswered:g.una,percent:score,title:gradeTitle(score),elapsedSec:Math.round(S.elapsedMs/1000),status:S.reason==='timeout'?'انتهى الوقت':'مكتملة',submittedAt:S.submittedAt,review:g.review,recorded:false,local:true};
+    S.stage='done';save();return showResult(false);
+  }
+  $('#waitIcon').textContent='⏳';$('#waitTitle').textContent='جارٍ تسليم إجاباتك...';$('#waitMsg').textContent='يرجى عدم إغلاق الصفحة.';$('#waitActs').innerHTML='';show('wait');
+  const r=await api('submit',{token:S.token,submissionId:S.sid,answers:S.answers,ts:S.ts,clientElapsedMs:S.elapsedMs,reason:S.reason},30000);
+  if(r&&r.ok&&r.result){S.result=r.result;S.stage='done';save();return showResult(false)}
+  if(r&&r.code&&r.code!=='NETWORK'){ $('#waitIcon').textContent='⚠';$('#waitTitle').textContent='تعذر قبول التسليم';$('#waitMsg').textContent=errMsg(r)}
+  pendingScreen(r);
+}
+function pendingScreen(r){
+  show('wait');$('#waitIcon').textContent='📡';$('#waitTitle').textContent='إجاباتك محفوظة على جهازك';
+  $('#waitMsg').textContent='لم تصل النتيجة إلى الخادم بعد'+(r&&r.error?' ('+r.error+')':'')+'. لا تغلق المتصفح ولا تمسح بياناته، ثم اضغط إعادة الإرسال. لن تتكرر نتيجتك في سجل المعلم.';
+  $('#waitActs').innerHTML='<button class="btn green" id="btnRetry">🔄 إعادة إرسال النتيجة</button>';
+  $('#btnRetry').onclick=async()=>{$('#btnRetry').disabled=true;await sendSubmission()};
+}
+addEventListener('online',()=>{if(S.stage==='wait'&&$('#s-wait').classList.contains('active')&&S.answers)sendSubmission()});
+
+/* ============ الوحدة 12: صفحة النتيجة والمراجعة ============ */
+function showResult(again){
+  const R=S.result;if(!R){S={v:1,stage:'home'};save();return show('home')}
+  const st=S.student;
+  $('#rName').textContent=st.name;$('#rGrade').textContent=st.grade;$('#rSec').textContent=st.section;
+  $('#rGradeTitle').textContent=R.title;$('#rCongrats').textContent=congrats(R.score);
+  $('#rCor').textContent=R.correct;$('#rWro').textContent=R.wrong;$('#rUna').textContent=R.unanswered;$('#rPct').textContent=R.percent+'%';$('#rTime').textContent=durText(R.elapsedSec);
+  $('#rStatus').textContent='حالة المسابقة: '+R.status;
+  $('#rDate').textContent='وقت التسليم: '+new Date(R.submittedAt).toLocaleString('ar-AE',{dateStyle:'medium',timeStyle:'short'});
+  const snd=$('#rSend');
+  if(R.local)snd.innerHTML='<div class="notice">نسخة تجريبية: النتيجة محفوظة على هذا الجهاز فقط ولم تُرسل إلى المعلم.</div>';
+  else if(R.emailStatus==='sent')snd.innerHTML='<div class="notice ok">✅ تم تسجيل نتيجتك وإرسالها إلى المعلم بنجاح.</div>';
+  else snd.innerHTML='<div class="notice ok">✅ تم تسجيل نتيجتك لدى المعلم بنجاح. (إرسال البريد قيد المعالجة وسيصل خلال وقت قصير.)</div>';
+  $('#btnAgain').style.display=CFGS.allowRetry?'inline-flex':'none';
+  show('result');
+  $('#ringArc').style.strokeDashoffset=553;setTimeout(()=>{$('#ringArc').style.strokeDashoffset=553*(1-R.score/100)},80);
+  const el=$('#rScore');let c=0;const step=Math.max(1,Math.round(R.score/40));clearInterval(showResult._i);showResult._i=setInterval(()=>{c=Math.min(R.score,c+step);el.textContent=c;if(c>=R.score)clearInterval(showResult._i)},30);
+  if(!again){ if(R.score>=60)confetti(); else burst(innerWidth/2,innerHeight/3,40) }
+}
+$('#btnAgain').onclick=()=>{S={v:1,stage:'home'};save();homeSetup();show('home')};
+$('#btnReview').onclick=()=>{
+  const R=S.result;if(!R||!R.review)return;
+  $('#revList').innerHTML=QS.map((q,i)=>{
+    const a=S.answers[i],rv=R.review[i],ok=a===rv.c,none=a<0;
+    return '<div class="card q '+(none?'none':ok?'':'bad')+'"><h4>'+p2(i+1)+'. '+esc(q.text)+'</h4><div class="ans"><div class="a you '+(none?'none':ok?'ok':'no')+'">إجابتك: '+(none?'لم تُجب':LET[a]+') '+esc(q.options[a]))+'</div>'+(ok?'':'<div class="a cor">الإجابة الصحيحة: '+LET[rv.c]+') '+esc(q.options[rv.c])+'</div>')+'</div><div class="exp"><b>التفسير:</b> '+esc(rv.e)+'</div><div class="skill">🎯 المهارة: '+esc(q.skill)+' | المستوى: '+esc(q.level)+'</div></div>';
+  }).join('');
+  show('review');
+};
+
+/* ============ الوحدة 13: شهادة الإنجاز (Canvas ثم PDF بدون مكتبات) ============ */
+const FONT='"Segoe UI","Noto Naskh Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif';
+function drawCert(){
+  const c=$('#certCanvas'),g=c.getContext('2d'),W=c.width,H=c.height,R=S.result,st=S.student;
+  g.direction='rtl';g.textAlign='center';
+  let bg=g.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#fffdf5');bg.addColorStop(1,'#f6efd6');g.fillStyle=bg;g.fillRect(0,0,W,H);
+  // أشرطة العلم الجانبية
+  g.fillStyle='#CE1126';g.fillRect(0,0,70,H);g.fillStyle='#00732F';g.fillRect(70,0,18,H/3);g.fillStyle='#000';g.fillRect(70,2*H/3,18,H/3);
+  g.fillStyle='#00732F';g.fillRect(W-88,0,18,H/3);g.fillStyle='#000';g.fillRect(W-88,2*H/3,18,H/3);g.fillStyle='#CE1126';g.fillRect(W-70,0,70,H);
+  // إطار ذهبي مزدوج
+  const gold=g.createLinearGradient(0,0,W,0);gold.addColorStop(0,'#8a6a14');gold.addColorStop(.5,'#f4dc8a');gold.addColorStop(1,'#8a6a14');
+  g.strokeStyle=gold;g.lineWidth=10;g.strokeRect(110,50,W-220,H-100);g.lineWidth=3;g.strokeRect(128,68,W-256,H-136);
+  [[128,68],[W-128,68],[128,H-68],[W-128,H-68]].forEach(([x,y])=>{g.fillStyle=gold;g.beginPath();g.arc(x,y,16,0,7);g.fill();g.fillStyle='#fffdf5';g.beginPath();g.arc(x,y,7,0,7);g.fill()});
+  // العلم
+  const fx=W-330,fy=100,fw=150,fh=90;g.fillStyle='#fff';g.fillRect(fx,fy,fw,fh);g.fillStyle='#00732F';g.fillRect(fx,fy,fw,fh/3);g.fillStyle='#000';g.fillRect(fx,fy+2*fh/3,fw,fh/3);g.fillStyle='#CE1126';g.fillRect(fx,fy,fw*.26,fh);g.strokeStyle='#9c7a1c';g.lineWidth=2;g.strokeRect(fx,fy,fw,fh);
+  // الرقم 55
+  g.font='900 190px Georgia,serif';const g55=g.createLinearGradient(0,70,0,260);g55.addColorStop(0,'#fff0b0');g55.addColorStop(.5,'#c9a227');g55.addColorStop(1,'#6a4f0c');
+  g.fillStyle='#5a420a';g.fillText('55',W/2+7,262);g.fillStyle=g55;g.fillText('55',W/2,255);
+  g.fillStyle='#CE1126';g.font='700 34px '+FONT;g.fillText('المسابقة الوطنية الكبرى – عيد الاتحاد الإماراتي الـ55',W/2,330);
+  g.fillStyle='#0b4a2a';g.font='900 78px '+FONT;g.fillText('شهادة بطل الاتحاد الإماراتي الـ55',W/2,430);
+  g.strokeStyle=gold;g.lineWidth=4;g.beginPath();g.moveTo(W/2-300,455);g.lineTo(W/2+300,455);g.stroke();
+  g.fillStyle='#333';g.font='600 32px '+FONT;g.fillText('تتشرف إدارة المسابقة بمنح هذه الشهادة إلى الطالب',W/2,520);
+  g.fillStyle='#8a6a14';g.font='900 82px '+FONT;g.fillText(st.name,W/2,625);
+  g.fillStyle='#222';g.font='600 34px '+FONT;g.fillText('الصف '+st.grade+' – الشعبة '+st.section,W/2,690);
+  g.fillText('تقديرًا لمشاركته في المسابقة الوطنية الكبرى: التحدي والتفكير والإبداع',W/2,752);
+  g.fillStyle='#0b4a2a';g.font='800 40px '+FONT;g.fillText('الدرجة: '+R.score+' من 100  |  التقدير: '+R.title,W/2,830);
+  g.fillStyle='#444';g.font='600 30px '+FONT;g.fillText('تاريخ المشاركة: '+new Date(R.submittedAt).toLocaleDateString('ar-AE',{year:'numeric',month:'long',day:'numeric'}),W/2,890);
+  g.fillStyle='#CE1126';g.font='italic 700 28px '+FONT;g.fillText('55 عامًا من الاتحاد... ومسيرة وطن لا تعرف المستحيل.',W/2,950);
+  g.strokeStyle='#bbb';g.lineWidth=2;g.beginPath();g.moveTo(W-560,1085);g.lineTo(W-260,1085);g.stroke();
+  g.fillStyle='#222';g.font='800 30px '+FONT;g.fillText('رائد السقار',W-410,1075);g.font='600 24px '+FONT;g.fillStyle='#555';g.fillText('تصميم وإعداد: مدرس الدراسات الاجتماعية',W-410,1125);
+  g.fillStyle='#0b4a2a';g.font='800 30px '+FONT;g.fillText('مدرسة محمد بن راشد',W/2,1075);g.font='600 24px '+FONT;g.fillStyle='#555';g.fillText('الحلقة الثانية والثالثة – دبي',W/2,1125);
+  // ختم ذهبي
+  const sx=300,sy=1070;const sg=g.createRadialGradient(sx,sy,10,sx,sy,70);sg.addColorStop(0,'#fff3c0');sg.addColorStop(1,'#a9831d');g.fillStyle=sg;g.beginPath();g.arc(sx,sy,68,0,7);g.fill();g.strokeStyle='#7a5b0f';g.lineWidth=3;g.beginPath();g.arc(sx,sy,56,0,7);g.stroke();g.fillStyle='#5a420a';g.font='900 54px Georgia,serif';g.fillText('55',sx,sy+18);
+}
+$('#btnCert').onclick=()=>{drawCert();show('cert')};
+function canvasToPdf(canvas){
+  const jpg=canvas.toDataURL('image/jpeg',.92).split(',')[1],bin=atob(jpg),img=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)img[i]=bin.charCodeAt(i);
+  const enc=new TextEncoder(),parts=[],offs=[];let pos=0;
+  const add=u=>{parts.push(u);pos+=u.length},addS=s=>add(enc.encode(s));
+  const obj=(n,body)=>{offs[n]=pos;addS(n+' 0 obj\n'+body+'\nendobj\n')};
+  addS('%PDF-1.4\n');
+  obj(1,'<< /Type /Catalog /Pages 2 0 R >>');obj(2,'<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+  obj(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Resources << /XObject << /Im0 5 0 R >> >> /Contents 4 0 R >>');
+  const cs='q 842 0 0 595 0 0 cm /Im0 Do Q';obj(4,'<< /Length '+cs.length+' >>\nstream\n'+cs+'\nendstream');
+  offs[5]=pos;addS('5 0 obj\n<< /Type /XObject /Subtype /Image /Width '+canvas.width+' /Height '+canvas.height+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+img.length+' >>\nstream\n');add(img);addS('\nendstream\nendobj\n');
+  const xr=pos;let x='xref\n0 6\n0000000000 65535 f \n';for(let i=1;i<=5;i++)x+=String(offs[i]).padStart(10,'0')+' 00000 n \n';
+  addS(x+'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+xr+'\n%%EOF');
+  const out=new Uint8Array(pos);let o=0;parts.forEach(p=>{out.set(p,o);o+=p.length});return new Blob([out],{type:'application/pdf'});
+}
+$('#btnPdf').onclick=()=>{
+  const b=canvasToPdf($('#certCanvas')),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='شهادة-بطل-الاتحاد-55.pdf';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
+};
+
+/* ============ الوحدة 14: لوحة المعلم ============ */
+let T={pw:'',rows:[],sessions:0};
+const isTeacher=/[?&]teacher\b/.test(location.search)||location.hash==='#teacher';
+function tRows(){
+  const g=$('#tfGrade').value,s=$('#tfSec').value;
+  return T.rows.filter(r=>(!g||r.grade===g)&&(!s||r.section===s)).sort((a,b)=>b.score-a.score||a.elapsedSec-b.elapsedSec);
+}
+function renderT(){
+  const all=T.rows,rows=tRows(),n=rows.length;
+  const avg=n?rows.reduce((a,r)=>a+r.score,0)/n:0,avgT=n?rows.reduce((a,r)=>a+r.elapsedSec,0)/n:0;
+  const st=[['المشاركون (بدأوا)',T.sessions],['أكملوا المسابقة',all.length],['متوسط الدرجات',n?avg.toFixed(1):'-'],['أعلى درجة',n?Math.max(...rows.map(r=>r.score)):'-'],['أقل درجة',n?Math.min(...rows.map(r=>r.score)):'-'],['متوسط الزمن',n?durText(avgT):'-']];
+  $('#tStats').innerHTML=st.map(x=>'<div class="s"><b>'+x[1]+'</b><span>'+x[0]+'</span></div>').join('');
+  $('#tTable tbody').innerHTML=rows.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.name)+'</td><td>'+esc(r.grade)+'</td><td>'+esc(r.section)+'</td><td><b>'+r.score+'</b></td><td>'+r.percent+'%</td><td>'+durText(r.elapsedSec)+'</td><td>'+esc(r.title)+'</td><td><span class="tag '+(r.status==='مكتملة'?'c':'t')+'">'+esc(r.status)+'</span></td><td>'+(r.emailStatus==='sent'?'✔ أُرسل':'⏳ '+esc(r.emailStatus||''))+'</td></tr>').join('')||'<tr><td colspan="10" style="text-align:center">لا توجد نتائج مطابقة</td></tr>';
+}
+async function tLoad(){
+  const r=await api('results',{password:T.pw});
+  if(!r.ok)return r;
+  T.rows=r.rows||[];T.sessions=r.sessions||0;
+  const set=r.settings||{};$('#sSections').value=(set.sections||CFGS.sections).join(',');$('#sDur').value=set.durationMin||30;$('#sRetry').value=set.allowRetry?'1':'0';$('#sOpen').value=(set.open===false)?'0':'1';
+  const secs=Array.from(new Set((set.sections||[]).concat(T.rows.map(x=>x.section))));fillSections($('#tfSec'),secs,'الكل');
+  renderT();return r;
+}
+function teacherInit(){
+  show('teacher');
+  if(!SERVER){$('#tLogin').innerHTML='<h2>لوحة المعلم</h2><div class="notice bad" style="margin-top:12px">لوحة المعلم تتطلب ربط خدمة Google Apps Script (WEB_APP_URL). النتائج وكلمة المرور تُحفظ في الخادم فقط. راجع README.md.</div>';return}
+  $('#btnTLogin').onclick=async()=>{
+    T.pw=$('#tPass').value;$('#tMsg').textContent='';$('#btnTLogin').disabled=true;
+    const r=await tLoad();$('#btnTLogin').disabled=false;
+    if(!r.ok){$('#tMsg').textContent=errMsg(r);T.pw='';return}
+    $('#tLogin').style.display='none';$('#tDash').style.display='block';$('#tPass').value='';
+  };
+  $('#tPass').onkeydown=e=>{if(e.key==='Enter')$('#btnTLogin').click()};
+  $('#tRefresh').onclick=tLoad;$('#tLogout').onclick=()=>{T={pw:'',rows:[],sessions:0};$('#tDash').style.display='none';$('#tLogin').style.display='block'};
+  $('#tfGrade').onchange=renderT;$('#tfSec').onchange=renderT;$('#tPrint').onclick=()=>window.print();
+  $('#tCsv').onclick=()=>{
+    const rows=tRows(),h=['الترتيب','اسم الطالب','الصف','الشعبة','الدرجة من 100','الصحيحة','الخاطئة','غير المجابة','النسبة','التقدير','الزمن (ثانية)','الزمن','الحالة','وقت التسليم'];
+    const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""').replace(/^([=+\-@])/,"'$1")+'"';
+    const lines=[h.map(q).join(',')].concat(rows.map((r,i)=>[i+1,r.name,r.grade,r.section,r.score,r.correct,r.wrong,r.unanswered,r.percent+'%',r.title,r.elapsedSec,durText(r.elapsedSec),r.status,r.submittedAt].map(q).join(',')));
+    const b=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='نتائج-المسابقة-الوطنية-55.csv';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
+  };
+  $('#sSave').onclick=async()=>{
+    const settings={sections:$('#sSections').value.split(/[,،]/).map(x=>x.trim()).filter(Boolean),durationMin:+$('#sDur').value,allowRetry:$('#sRetry').value==='1',open:$('#sOpen').value==='1'};
+    const r=await api('saveSettings',{password:T.pw,settings});$('#sMsg').textContent=r.ok?'✔ تم الحفظ':errMsg(r);if(r.ok)tLoad();
+  };
+  $('#tReset').onclick=()=>{
+    if($('#rConfirm').value.trim()!=='حذف'){$('#rMsg').textContent='اكتب كلمة «حذف» للتأكيد.';return}
+    modal('تأكيد نهائي','سيتم حذف جميع النتائج. هل تريد المتابعة؟',[{t:'نعم، احذف',cls:'red',f:async()=>{const r=await api('reset',{password:T.pw,confirm:'حذف'});$('#rMsg').textContent=r.ok?'✔ تمت إعادة الضبط':errMsg(r);$('#rConfirm').value='';if(r.ok)tLoad()}},{t:'إلغاء',cls:'ghost'}]);
+  };
+}
+
+/* ============ الوحدة 15: التشغيل ============ */
+window.addEventListener('error',e=>{try{console.error('app error',e.message)}catch(_){}});
+(async function boot(){
+  if(isTeacher){teacherInit();return}
+  await loadCfg();
+  if(S.stage==='running'&&S.answers){ homeSetup();startQuiz(); }
+  else if(S.stage==='wait'){homeSetup();pendingScreen()}
+  else if(S.stage==='done'&&S.result&&!CFGS.allowRetry){homeSetup();showResult(true)}
+  else{homeSetup();show('home')}
+})();
+})();
+</script>
+</body>
+</html>
